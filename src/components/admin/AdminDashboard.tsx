@@ -27,7 +27,8 @@ import {
   Calendar,
   Phone,
   Mail,
-  User
+  User,
+  Menu
 } from 'lucide-react';
 import { useCMS } from '../../context/CMSContext';
 import { 
@@ -90,6 +91,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
   const [activeTab, setActiveTab] = useState<
     'overview' | 'bookings' | 'enquiries' | 'rooms' | 'facilities' | 'dining' | 'gallery' | 'location' | 'policies' | 'settings'
   >('overview');
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   const [loginPassword, setLoginPassword] = useState('');
   const [loginError, setLoginError] = useState(false);
@@ -309,10 +311,20 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
         </div>
       ) : (
         /* Authenticated Admin Dashboard Layout */
-        <div className="flex w-full h-full overflow-hidden">
+        <div className="relative flex w-full h-full overflow-hidden">
           
+          {/* Mobile backdrop */}
+          {mobileNavOpen && (
+            <div 
+              className="fixed inset-0 bg-black/70 z-30 md:hidden backdrop-blur-sm"
+              onClick={() => setMobileNavOpen(false)}
+            />
+          )}
+
           {/* Sidebar */}
-          <aside className="w-64 bg-[#10131a] border-r border-white/10 flex flex-col justify-between shrink-0">
+          <aside className={`fixed md:static inset-y-0 left-0 z-40 w-64 bg-[#10131a] border-r border-white/10 flex flex-col justify-between shrink-0 transition-transform duration-300 ${
+            mobileNavOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+          }`}>
             <div>
               {/* Brand Top */}
               <div className="p-5 border-b border-white/10 flex items-center justify-between">
@@ -325,14 +337,22 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
                     <div className="text-[10px] text-[#a09e99] font-mono">Knowledge Park III</div>
                   </div>
                 </div>
+
+                <button
+                  type="button"
+                  onClick={() => setMobileNavOpen(false)}
+                  className="md:hidden p-1.5 text-[#8e8c87] hover:text-white"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
 
               {/* Navigation Links */}
               <nav className="p-3 space-y-1 overflow-y-auto max-h-[calc(100vh-160px)]">
                 <button
                   type="button"
-                  onClick={() => setActiveTab('overview')}
-                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
+                  onClick={() => { setActiveTab('overview'); setMobileNavOpen(false); }}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
                     activeTab === 'overview' ? 'bg-[#c8a97e] text-[#0f1115] font-semibold' : 'text-[#a09e99] hover:text-white hover:bg-white/5'
                   }`}
                 >
@@ -342,8 +362,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
 
                 <button
                   type="button"
-                  onClick={() => setActiveTab('bookings')}
-                  className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
+                  onClick={() => { setActiveTab('bookings'); setMobileNavOpen(false); }}
+                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
                     activeTab === 'bookings' ? 'bg-[#c8a97e] text-[#0f1115] font-semibold' : 'text-[#a09e99] hover:text-white hover:bg-white/5'
                   }`}
                 >
@@ -358,8 +378,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
 
                 <button
                   type="button"
-                  onClick={() => setActiveTab('enquiries')}
-                  className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
+                  onClick={() => { setActiveTab('enquiries'); setMobileNavOpen(false); }}
+                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
                     activeTab === 'enquiries' ? 'bg-[#c8a97e] text-[#0f1115] font-semibold' : 'text-[#a09e99] hover:text-white hover:bg-white/5'
                   }`}
                 >
@@ -374,8 +394,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
 
                 <button
                   type="button"
-                  onClick={() => setActiveTab('rooms')}
-                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
+                  onClick={() => { setActiveTab('rooms'); setMobileNavOpen(false); }}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
                     activeTab === 'rooms' ? 'bg-[#c8a97e] text-[#0f1115] font-semibold' : 'text-[#a09e99] hover:text-white hover:bg-white/5'
                   }`}
                 >
@@ -385,8 +405,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
 
                 <button
                   type="button"
-                  onClick={() => setActiveTab('facilities')}
-                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
+                  onClick={() => { setActiveTab('facilities'); setMobileNavOpen(false); }}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
                     activeTab === 'facilities' ? 'bg-[#c8a97e] text-[#0f1115] font-semibold' : 'text-[#a09e99] hover:text-white hover:bg-white/5'
                   }`}
                 >
@@ -396,8 +416,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
 
                 <button
                   type="button"
-                  onClick={() => setActiveTab('dining')}
-                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
+                  onClick={() => { setActiveTab('dining'); setMobileNavOpen(false); }}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
                     activeTab === 'dining' ? 'bg-[#c8a97e] text-[#0f1115] font-semibold' : 'text-[#a09e99] hover:text-white hover:bg-white/5'
                   }`}
                 >
@@ -407,8 +427,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
 
                 <button
                   type="button"
-                  onClick={() => setActiveTab('gallery')}
-                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
+                  onClick={() => { setActiveTab('gallery'); setMobileNavOpen(false); }}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
                     activeTab === 'gallery' ? 'bg-[#c8a97e] text-[#0f1115] font-semibold' : 'text-[#a09e99] hover:text-white hover:bg-white/5'
                   }`}
                 >
@@ -418,8 +438,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
 
                 <button
                   type="button"
-                  onClick={() => setActiveTab('location')}
-                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
+                  onClick={() => { setActiveTab('location'); setMobileNavOpen(false); }}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
                     activeTab === 'location' ? 'bg-[#c8a97e] text-[#0f1115] font-semibold' : 'text-[#a09e99] hover:text-white hover:bg-white/5'
                   }`}
                 >
@@ -429,8 +449,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
 
                 <button
                   type="button"
-                  onClick={() => setActiveTab('policies')}
-                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
+                  onClick={() => { setActiveTab('policies'); setMobileNavOpen(false); }}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
                     activeTab === 'policies' ? 'bg-[#c8a97e] text-[#0f1115] font-semibold' : 'text-[#a09e99] hover:text-white hover:bg-white/5'
                   }`}
                 >
@@ -440,8 +460,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
 
                 <button
                   type="button"
-                  onClick={() => setActiveTab('settings')}
-                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
+                  onClick={() => { setActiveTab('settings'); setMobileNavOpen(false); }}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-mono tracking-wider uppercase transition-colors ${
                     activeTab === 'settings' ? 'bg-[#c8a97e] text-[#0f1115] font-semibold' : 'text-[#a09e99] hover:text-white hover:bg-white/5'
                   }`}
                 >
@@ -477,17 +497,27 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
           <main className="flex-1 bg-[#14171f] overflow-y-auto">
             
             {/* Top Bar */}
-            <header className="p-6 border-b border-white/10 flex items-center justify-between bg-[#10131a]">
-              <div>
-                <h1 className="text-xl font-serif font-bold text-white uppercase">
-                  {activeTab.replace('-', ' ')}
-                </h1>
-                <p className="text-xs text-[#a09e99] font-mono">
-                  Galaxy Residency Management Console • Auto-synchronized with live public site
-                </p>
+            <header className="p-4 sm:p-6 border-b border-white/10 flex items-center justify-between bg-[#10131a] shrink-0">
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setMobileNavOpen(true)}
+                  className="md:hidden p-2 text-white/70 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg min-h-[44px] min-w-[44px] flex items-center justify-center"
+                  aria-label="Open sidebar menu"
+                >
+                  <Menu className="w-5 h-5" />
+                </button>
+                <div>
+                  <h1 className="text-lg sm:text-xl font-serif font-bold text-white uppercase">
+                    {activeTab.replace('-', ' ')}
+                  </h1>
+                  <p className="text-[11px] sm:text-xs text-[#a09e99] font-mono line-clamp-1">
+                    Galaxy Residency Management Console • Auto-synchronized with live public site
+                  </p>
+                </div>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 sm:gap-3">
                 <button
                   type="button"
                   onClick={() => {

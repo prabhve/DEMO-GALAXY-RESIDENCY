@@ -47,7 +47,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           
           {/* Card 1: Telephone Desk */}
-          <div className="p-8 rounded-2xl bg-[#14171f] border border-white/10 hover:border-[#c8a97e]/40 transition-all duration-300 flex flex-col justify-between shadow-xl">
+          <div className="p-6 sm:p-8 rounded-2xl bg-[#14171f] border border-white/10 hover:border-[#c8a97e]/40 transition-all duration-300 flex flex-col justify-between shadow-xl">
             <div>
               <div className="w-12 h-12 rounded-xl bg-[#c8a97e]/10 text-[#c8a97e] flex items-center justify-center mb-6">
                 <Phone className="w-6 h-6" />
@@ -70,7 +70,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               <a
                 href={`tel:${property.phone}`}
                 id="contact-call-btn"
-                className="w-full py-3 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-lg text-xs font-mono uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
+                className="w-full min-h-[44px] py-3 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-lg text-xs font-mono uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
               >
                 <Phone className="w-3.5 h-3.5 text-[#c8a97e]" />
                 <span>CALL NOW</span>
@@ -79,7 +79,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           </div>
 
           {/* Card 2: Property Location & Directions */}
-          <div className="p-8 rounded-2xl bg-[#14171f] border border-white/10 hover:border-[#c8a97e]/40 transition-all duration-300 flex flex-col justify-between shadow-xl">
+          <div className="p-6 sm:p-8 rounded-2xl bg-[#14171f] border border-white/10 hover:border-[#c8a97e]/40 transition-all duration-300 flex flex-col justify-between shadow-xl">
             <div>
               <div className="w-12 h-12 rounded-xl bg-[#c8a97e]/10 text-[#c8a97e] flex items-center justify-center mb-6">
                 <MapPin className="w-6 h-6" />
@@ -105,7 +105,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 id="contact-directions-btn"
-                className="w-full py-3 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-lg text-xs font-mono uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
+                className="w-full min-h-[44px] py-3 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-lg text-xs font-mono uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
               >
                 <Navigation className="w-3.5 h-3.5 text-[#c8a97e]" />
                 <span>GET DIRECTIONS</span>
@@ -114,7 +114,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           </div>
 
           {/* Card 3: Online Enquiry & WhatsApp */}
-          <div className="p-8 rounded-2xl bg-[#14171f] border border-white/10 hover:border-[#c8a97e]/40 transition-all duration-300 flex flex-col justify-between shadow-xl">
+          <div className="p-6 sm:p-8 rounded-2xl bg-[#14171f] border border-white/10 hover:border-[#c8a97e]/40 transition-all duration-300 flex flex-col justify-between shadow-xl">
             <div>
               <div className="w-12 h-12 rounded-xl bg-[#c8a97e]/10 text-[#c8a97e] flex items-center justify-center mb-6">
                 <Send className="w-6 h-6" />
@@ -140,7 +140,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 type="button"
                 onClick={onOpenEnquiry}
                 id="contact-send-enquiry-btn"
-                className="w-full py-3 bg-[#c8a97e] hover:bg-[#dbbe96] text-[#0f1115] font-semibold rounded-lg text-xs font-mono uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-md shadow-[#c8a97e]/15"
+                className="w-full min-h-[44px] py-3 bg-[#c8a97e] hover:bg-[#dbbe96] text-[#0f1115] font-semibold rounded-lg text-xs font-mono uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-md shadow-[#c8a97e]/15"
               >
                 <Send className="w-3.5 h-3.5" />
                 <span>SEND ENQUIRY</span>
@@ -152,7 +152,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   href={`https://wa.me/${property.whatsapp.replace(/[^0-9]/g, '')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-2.5 bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-300 border border-emerald-500/20 rounded-lg text-xs font-mono uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
+                  className="w-full min-h-[44px] py-2.5 bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-300 border border-emerald-500/20 rounded-lg text-xs font-mono uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
                 >
                   <span>WHATSAPP CHAT</span>
                 </a>

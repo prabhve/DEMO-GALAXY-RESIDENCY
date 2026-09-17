@@ -63,11 +63,11 @@ export const RoomDetailModal: React.FC<RoomDetailModalProps> = ({
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-xl overflow-y-auto animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/85 backdrop-blur-xl overflow-y-auto animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-4xl bg-[#14171f] border border-white/10 rounded-2xl shadow-2xl overflow-hidden my-auto"
+        className="relative w-full max-w-4xl max-h-[92vh] flex flex-col bg-[#14171f] border border-white/10 rounded-2xl shadow-2xl overflow-hidden my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -75,14 +75,14 @@ export const RoomDetailModal: React.FC<RoomDetailModalProps> = ({
           type="button"
           onClick={onClose}
           id="close-room-modal-btn"
-          className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-black/60 hover:bg-black/80 text-white/80 hover:text-white border border-white/10 backdrop-blur-md transition-all"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 w-11 h-11 flex items-center justify-center rounded-full bg-black/70 hover:bg-black/90 text-white/80 hover:text-white border border-white/10 backdrop-blur-md transition-all"
           aria-label="Close Room Details"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Top Visual Gallery Showcase */}
-        <div className="relative aspect-[16/10] sm:aspect-[21/9] w-full bg-black overflow-hidden group">
+        <div className="relative aspect-[16/10] sm:aspect-[21/9] w-full bg-black overflow-hidden group shrink-0">
           <img 
             src={images[activeImageIndex]} 
             alt={`${room.name} gallery item ${activeImageIndex + 1}`}
@@ -97,7 +97,7 @@ export const RoomDetailModal: React.FC<RoomDetailModalProps> = ({
               <button
                 type="button"
                 onClick={prevImage}
-                className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/80 text-white border border-white/10 transition-all opacity-80 hover:opacity-100"
+                className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-black/60 hover:bg-black/80 text-white border border-white/10 transition-all opacity-80 hover:opacity-100"
                 aria-label="Previous Image"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -105,7 +105,7 @@ export const RoomDetailModal: React.FC<RoomDetailModalProps> = ({
               <button
                 type="button"
                 onClick={nextImage}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/80 text-white border border-white/10 transition-all opacity-80 hover:opacity-100"
+                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-black/60 hover:bg-black/80 text-white border border-white/10 transition-all opacity-80 hover:opacity-100"
                 aria-label="Next Image"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -117,8 +117,8 @@ export const RoomDetailModal: React.FC<RoomDetailModalProps> = ({
                   <button
                     key={i}
                     onClick={() => setActiveImageIndex(i)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      activeImageIndex === i ? 'w-6 bg-[#c8a97e]' : 'bg-white/40 hover:bg-white/70'
+                    className={`h-2 rounded-full transition-all ${
+                      activeImageIndex === i ? 'w-6 bg-[#c8a97e]' : 'w-2 bg-white/40 hover:bg-white/70'
                     }`}
                     aria-label={`Jump to image ${i + 1}`}
                   />
@@ -136,7 +136,7 @@ export const RoomDetailModal: React.FC<RoomDetailModalProps> = ({
         </div>
 
         {/* Content Details */}
-        <div className="p-6 sm:p-8 max-h-[60vh] overflow-y-auto">
+        <div className="p-4 sm:p-6 md:p-8 overflow-y-auto flex-1">
           
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
             <div>
@@ -255,11 +255,11 @@ export const RoomDetailModal: React.FC<RoomDetailModalProps> = ({
               * Request-based reservation. Our management team confirms availability upon receipt.
             </div>
 
-            <div className="flex items-center gap-3 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
               <button
                 type="button"
                 onClick={onClose}
-                className="w-full sm:w-auto px-5 py-2.5 text-xs text-[#bbb8b0] hover:text-white rounded-lg border border-white/10 transition-colors font-mono"
+                className="w-full sm:w-auto min-h-[44px] px-5 py-2.5 text-xs text-[#bbb8b0] hover:text-white rounded-lg border border-white/10 transition-colors font-mono flex items-center justify-center"
               >
                 BACK
               </button>
@@ -271,7 +271,7 @@ export const RoomDetailModal: React.FC<RoomDetailModalProps> = ({
                   onRequestBooking(room.name, room.id);
                 }}
                 id="modal-request-booking-btn"
-                className="w-full sm:w-auto px-7 py-2.5 text-xs font-semibold tracking-wider text-[#0f1115] bg-gradient-to-r from-[#c8a97e] to-[#dfc7a5] hover:brightness-110 active:scale-95 rounded-lg shadow-lg shadow-[#c8a97e]/20 transition-all uppercase font-mono flex items-center justify-center gap-2 whitespace-nowrap"
+                className="w-full sm:w-auto min-h-[44px] px-7 py-2.5 text-xs font-semibold tracking-wider text-[#0f1115] bg-gradient-to-r from-[#c8a97e] to-[#dfc7a5] hover:brightness-110 active:scale-95 rounded-lg shadow-lg shadow-[#c8a97e]/20 transition-all uppercase font-mono flex items-center justify-center gap-2 whitespace-nowrap"
               >
                 <CalendarCheck className="w-4 h-4" />
                 <span>REQUEST THIS ROOM</span>

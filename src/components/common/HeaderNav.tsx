@@ -72,23 +72,23 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4 h-11">
+          <div className="flex items-center justify-between gap-2 sm:gap-4 h-11">
             
             {/* 1. Left: Brand Logo & Identity */}
             <a 
               href="#hero" 
-              className="flex items-center gap-3 group focus:outline-none shrink-0"
+              className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none shrink-0 min-w-0"
               id="header-brand-logo"
             >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#c8a97e] via-[#bca076] to-[#8c734e] flex items-center justify-center text-[#0f1115] shadow-md shadow-[#c8a97e]/20 group-hover:scale-105 transition-transform duration-300">
-                <Building2 className="w-5 h-5" />
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#c8a97e] via-[#bca076] to-[#8c734e] flex items-center justify-center text-[#0f1115] shadow-md shadow-[#c8a97e]/20 group-hover:scale-105 transition-transform duration-300 shrink-0">
+                <Building2 className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
               </div>
-              <div className="flex flex-col">
-                <span className="text-base sm:text-lg font-serif tracking-wide font-bold text-[#f5f3ef] uppercase leading-tight group-hover:text-[#c8a97e] transition-colors">
+              <div className="flex flex-col min-w-0">
+                <span className="text-sm xs:text-base sm:text-lg font-serif tracking-wide font-bold text-[#f5f3ef] uppercase leading-tight group-hover:text-[#c8a97e] transition-colors truncate">
                   {property.name || 'Galaxy Residency'}
                 </span>
-                <span className="text-[10px] tracking-wider text-[#a09e99] uppercase font-mono leading-none mt-0.5">
-                  {property.category || 'Student Dormitory'} • Knowledge Park III
+                <span className="text-[9px] sm:text-[10px] tracking-wider text-[#a09e99] uppercase font-mono leading-none mt-0.5 truncate">
+                  {property.category || 'Student Dormitory'} • KP III
                 </span>
               </div>
             </a>
@@ -114,7 +114,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
               })}
             </nav>
 
-            {/* 3. Right: Harmonious Action Controls (Clean, Vertically Aligned, No Admin Icon) */}
+            {/* 3. Right: Harmonious Action Controls */}
             <div className="hidden sm:flex items-center gap-3 shrink-0">
               {/* Verified Phone Quick Contact */}
               <a
@@ -139,12 +139,12 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
               </button>
             </div>
 
-            {/* Mobile Menu Toggle Button */}
-            <div className="flex sm:hidden items-center gap-2">
+            {/* Mobile Menu Toggle Button (Touch Friendly >= 44px) */}
+            <div className="flex sm:hidden items-center gap-2 shrink-0">
               <button
                 type="button"
                 onClick={onRequestBooking}
-                className="h-9 px-3.5 text-xs font-semibold text-[#0f1115] bg-[#c8a97e] rounded-lg uppercase font-mono"
+                className="h-11 px-3 text-xs font-semibold text-[#0f1115] bg-[#c8a97e] active:bg-[#dbbe96] rounded-lg uppercase font-mono shadow-sm"
               >
                 BOOK
               </button>
@@ -153,7 +153,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 id="mobile-menu-toggle"
-                className="w-9 h-9 flex items-center justify-center text-white bg-white/10 hover:bg-white/15 rounded-lg transition-colors"
+                className="w-11 h-11 flex items-center justify-center text-white bg-white/10 hover:bg-white/15 active:scale-95 rounded-lg transition-all"
                 aria-label="Toggle Navigation Menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -163,35 +163,36 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
         </div>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer (Touch-Optimized) */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-[#0f1115]/98 backdrop-blur-xl flex flex-col justify-between p-6 sm:hidden">
+        <div className="fixed inset-0 z-50 bg-[#0f1115]/98 backdrop-blur-xl flex flex-col justify-between p-5 sm:p-6 sm:hidden animate-in fade-in duration-200">
           <div className="flex items-center justify-between border-b border-white/10 pb-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-[#c8a97e] flex items-center justify-center text-[#0f1115]">
+              <div className="w-10 h-10 rounded-xl bg-[#c8a97e] flex items-center justify-center text-[#0f1115]">
                 <Building2 className="w-5 h-5" />
               </div>
               <div>
-                <div className="font-serif text-white font-semibold text-base">{property.name}</div>
+                <div className="font-serif text-white font-semibold text-base leading-tight">{property.name}</div>
                 <div className="text-[10px] text-[#a09e99] font-mono">{property.category} • Knowledge Park III</div>
               </div>
             </div>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2 text-white/70 hover:text-white"
+              className="w-11 h-11 flex items-center justify-center rounded-lg bg-white/5 text-white/80 hover:text-white"
+              aria-label="Close Navigation"
             >
               <X className="w-6 h-6" />
             </button>
           </div>
 
-          <div className="flex flex-col gap-2 py-6 overflow-y-auto">
+          <div className="flex flex-col gap-1 py-4 overflow-y-auto">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-lg font-serif tracking-wider text-[#ddd9cf] hover:text-[#c8a97e] py-2.5 border-b border-white/5 flex items-center justify-between"
+                className="text-lg font-serif tracking-wide text-[#ddd9cf] hover:text-[#c8a97e] py-3 px-3 rounded-lg hover:bg-white/5 border-b border-white/5 flex items-center justify-between min-h-[48px] transition-colors"
               >
                 <span>{link.label}</span>
                 <span className="text-xs font-mono text-[#77746d]">→</span>
@@ -199,10 +200,10 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
             ))}
           </div>
 
-          <div className="flex flex-col gap-3 pt-4 border-t border-white/10">
+          <div className="flex flex-col gap-2.5 pt-4 border-t border-white/10">
             <a
               href={`tel:${property.phone}`}
-              className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-[#c8a97e]/30 rounded-lg text-sm text-[#c8a97e] font-mono"
+              className="flex items-center justify-center gap-2 h-12 bg-white/5 border border-[#c8a97e]/30 rounded-xl text-sm text-[#c8a97e] font-mono"
             >
               <Phone className="w-4 h-4" />
               <span>{property.phone}</span>
@@ -214,9 +215,10 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
                 setMobileMenuOpen(false);
                 onRequestBooking();
               }}
-              className="w-full py-3 bg-[#c8a97e] text-[#0f1115] font-semibold text-sm rounded-lg tracking-wider uppercase font-mono shadow-lg shadow-[#c8a97e]/20"
+              className="w-full h-12 bg-[#c8a97e] hover:bg-[#dbbe96] text-[#0f1115] font-semibold text-sm rounded-xl tracking-wider uppercase font-mono shadow-lg shadow-[#c8a97e]/20 flex items-center justify-center gap-2"
             >
-              REQUEST BOOKING
+              <CalendarCheck className="w-4 h-4" />
+              <span>REQUEST BOOKING</span>
             </button>
           </div>
         </div>

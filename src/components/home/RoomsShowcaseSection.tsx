@@ -158,20 +158,20 @@ export const RoomsShowcaseSection: React.FC<RoomsShowcaseSectionProps> = ({
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="grid grid-cols-2 gap-3 pt-2">
+                    <div className="grid grid-cols-2 gap-2.5 pt-2">
                       <button
                         type="button"
                         onClick={() => onSelectRoom(room)}
-                        className="py-2.5 px-3 text-xs font-mono uppercase tracking-wider text-white bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 transition-colors flex items-center justify-center gap-1.5"
+                        className="min-h-[44px] py-2.5 px-2 sm:px-3 text-[11px] sm:text-xs font-mono uppercase tracking-wider text-white bg-white/5 hover:bg-white/10 active:bg-white/15 rounded-lg border border-white/10 transition-colors flex items-center justify-center gap-1.5 whitespace-nowrap"
                       >
-                        <span>VIEW DETAILS</span>
+                        <span>DETAILS</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </button>
 
                       <button
                         type="button"
                         onClick={() => onRequestBooking(room.name, room.id)}
-                        className="py-2.5 px-3 text-xs font-mono uppercase tracking-wider font-semibold text-[#0f1115] bg-[#c8a97e] hover:bg-[#dbbe96] active:scale-95 rounded-lg transition-all flex items-center justify-center gap-1.5 shadow-md shadow-[#c8a97e]/15"
+                        className="min-h-[44px] py-2.5 px-2 sm:px-3 text-[11px] sm:text-xs font-mono uppercase tracking-wider font-semibold text-[#0f1115] bg-[#c8a97e] hover:bg-[#dbbe96] active:scale-95 rounded-lg transition-all flex items-center justify-center gap-1.5 shadow-md shadow-[#c8a97e]/15 whitespace-nowrap"
                       >
                         <CalendarCheck className="w-3.5 h-3.5" />
                         <span>BOOK STAY</span>

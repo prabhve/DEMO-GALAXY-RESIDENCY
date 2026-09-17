@@ -65,7 +65,7 @@ export const GallerySection: React.FC = () => {
                 key={cat}
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200 ${
+                className={`min-h-[40px] sm:min-h-[38px] px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200 flex items-center justify-center ${
                   selectedCategory === cat
                     ? 'bg-[#c8a97e] text-[#0f1115] font-semibold shadow-lg shadow-[#c8a97e]/20'
                     : 'bg-white/5 text-[#a09e99] hover:text-white hover:bg-white/10'

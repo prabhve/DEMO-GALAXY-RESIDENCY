@@ -74,20 +74,20 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) =
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-xl overflow-y-auto animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/85 backdrop-blur-xl overflow-y-auto animate-in fade-in duration-200"
       onClick={handleClose}
     >
       <div 
-        className="relative w-full max-w-xl bg-[#14171f] border border-white/10 rounded-2xl shadow-2xl overflow-hidden my-auto"
+        className="relative w-full max-w-xl max-h-[92vh] flex flex-col bg-[#14171f] border border-white/10 rounded-2xl shadow-2xl overflow-hidden my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-6 border-b border-white/10 flex items-center justify-between bg-white/[0.02]">
+        <div className="p-4 sm:p-6 border-b border-white/10 flex items-center justify-between bg-white/[0.02] shrink-0">
           <div>
             <span className="text-[10px] font-mono tracking-widest uppercase text-[#c8a97e] block">
               GALAXY RESIDENCY
             </span>
-            <h2 className="text-xl font-serif font-bold text-white">
+            <h2 className="text-lg sm:text-xl font-serif font-bold text-white">
               {submittedId ? 'Enquiry Submitted' : 'Submit an Enquiry'}
             </h2>
           </div>
@@ -95,21 +95,22 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) =
           <button
             type="button"
             onClick={handleClose}
-            className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-colors"
+            className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-colors"
+            aria-label="Close enquiry modal"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Content */}
-        <div className="p-6 sm:p-8">
+        <div className="p-4 sm:p-6 md:p-8 overflow-y-auto flex-1">
           {submittedId ? (
             <div className="text-center py-6">
               <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto mb-5 border border-emerald-500/30">
                 <CheckCircle className="w-8 h-8" />
               </div>
 
-              <h3 className="text-2xl font-serif font-bold text-white mb-2">
+              <h3 className="text-xl sm:text-2xl font-serif font-bold text-white mb-2">
                 Your Enquiry Has Been Received.
               </h3>
 
@@ -124,7 +125,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) =
               <button
                 type="button"
                 onClick={handleClose}
-                className="px-6 py-2.5 bg-[#c8a97e] text-[#0f1115] font-semibold text-xs font-mono uppercase tracking-wider rounded-lg"
+                className="w-full sm:w-auto min-h-[44px] px-6 py-2.5 bg-[#c8a97e] text-[#0f1115] font-semibold text-xs font-mono uppercase tracking-wider rounded-lg"
               >
                 CLOSE
               </button>
@@ -149,7 +150,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) =
                     placeholder="Enter your name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-[#0f1115] border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#c8a97e]"
+                    className="w-full bg-[#0f1115] border border-white/10 rounded-lg pl-10 pr-4 py-3 sm:py-2.5 text-base sm:text-sm text-white focus:outline-none focus:border-[#c8a97e]"
                   />
                 </div>
               </div>
@@ -167,7 +168,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) =
                       placeholder="+91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-[#0f1115] border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#c8a97e]"
+                      className="w-full bg-[#0f1115] border border-white/10 rounded-lg pl-10 pr-4 py-3 sm:py-2.5 text-base sm:text-sm text-white focus:outline-none focus:border-[#c8a97e]"
                     />
                   </div>
                 </div>
@@ -183,7 +184,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) =
                       placeholder="user@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-[#0f1115] border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#c8a97e]"
+                      className="w-full bg-[#0f1115] border border-white/10 rounded-lg pl-10 pr-4 py-3 sm:py-2.5 text-base sm:text-sm text-white focus:outline-none focus:border-[#c8a97e]"
                     />
                   </div>
                 </div>
@@ -197,7 +198,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) =
                   <select
                     value={formData.type}
                     onChange={(e) => setFormData({ ...formData, type: e.target.value as EnquiryType })}
-                    className="w-full bg-[#0f1115] border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#c8a97e]"
+                    className="w-full bg-[#0f1115] border border-white/10 rounded-lg px-3 py-3 sm:py-2.5 text-base sm:text-sm text-white focus:outline-none focus:border-[#c8a97e]"
                   >
                     <option value="General Enquiry">General Enquiry</option>
                     <option value="Room Enquiry">Room Enquiry</option>
@@ -218,7 +219,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) =
                     placeholder="Short description of query"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full bg-[#0f1115] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#c8a97e]"
+                    className="w-full bg-[#0f1115] border border-white/10 rounded-lg px-4 py-3 sm:py-2.5 text-base sm:text-sm text-white focus:outline-none focus:border-[#c8a97e]"
                   />
                 </div>
               </div>
@@ -233,7 +234,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) =
                   placeholder="How can we assist you regarding your stay, amenities, or admission?"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-[#0f1115] border border-white/10 rounded-lg p-3 text-sm text-white focus:outline-none focus:border-[#c8a97e]"
+                  className="w-full bg-[#0f1115] border border-white/10 rounded-lg p-3 text-base sm:text-sm text-white focus:outline-none focus:border-[#c8a97e]"
                 />
               </div>
 
@@ -242,7 +243,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) =
                   type="submit"
                   disabled={isSubmitting}
                   id="submit-enquiry-form-btn"
-                  className="px-7 py-3 bg-[#c8a97e] hover:bg-[#dbbe96] text-[#0f1115] font-semibold text-xs font-mono uppercase tracking-wider rounded-lg flex items-center gap-2 transition-colors shadow-lg shadow-[#c8a97e]/15"
+                  className="w-full sm:w-auto min-h-[44px] px-7 py-3 bg-[#c8a97e] hover:bg-[#dbbe96] text-[#0f1115] font-semibold text-xs font-mono uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-colors shadow-lg shadow-[#c8a97e]/15"
                 >
                   <Send className="w-4 h-4" />
                   <span>{isSubmitting ? 'SUBMITTING...' : 'SUBMIT ENQUIRY'}</span>

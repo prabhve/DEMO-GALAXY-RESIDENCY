@@ -144,7 +144,7 @@ export const Footer: React.FC<FooterProps> = ({
               <button
                 type="button"
                 onClick={onRequestBooking}
-                className="w-full py-2.5 bg-[#c8a97e] hover:bg-[#dbbe96] text-[#0f1115] font-semibold text-xs rounded-lg font-mono uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5"
+                className="w-full min-h-[44px] py-2.5 bg-[#c8a97e] hover:bg-[#dbbe96] text-[#0f1115] font-semibold text-xs rounded-lg font-mono uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5"
               >
                 <CalendarCheck className="w-3.5 h-3.5" />
                 <span>BOOK YOUR STAY</span>
@@ -153,7 +153,7 @@ export const Footer: React.FC<FooterProps> = ({
               <button
                 type="button"
                 onClick={onOpenEnquiry}
-                className="w-full py-2 text-xs text-[#a09e99] hover:text-white rounded-lg border border-white/10 transition-colors font-mono"
+                className="w-full min-h-[44px] py-2 text-xs text-[#a09e99] hover:text-white rounded-lg border border-white/10 transition-colors font-mono flex items-center justify-center"
               >
                 Send Enquiry
               </button>

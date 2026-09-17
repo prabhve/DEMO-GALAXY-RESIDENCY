@@ -61,13 +61,13 @@ export const LocationSection: React.FC = () => {
           </div>
 
           {/* Action CTAs */}
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto">
             <a
               href={property.directionsUrl}
               target="_blank"
               rel="noopener noreferrer"
               id="location-directions-btn"
-              className="px-5 py-3 text-xs font-mono uppercase tracking-wider font-semibold text-[#0f1115] bg-[#c8a97e] hover:bg-[#dbbe96] active:scale-95 rounded-lg transition-all flex items-center gap-2 shadow-lg shadow-[#c8a97e]/20"
+              className="w-full sm:w-auto px-5 py-3.5 sm:py-3 text-xs font-mono uppercase tracking-wider font-semibold text-[#0f1115] bg-[#c8a97e] hover:bg-[#dbbe96] active:scale-95 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#c8a97e]/20 whitespace-nowrap min-h-[44px]"
             >
               <Navigation className="w-4 h-4" />
               <span>GET DIRECTIONS</span>
@@ -78,7 +78,7 @@ export const LocationSection: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               id="location-maps-link"
-              className="px-5 py-3 text-xs font-mono uppercase tracking-wider text-white bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 transition-colors flex items-center gap-2"
+              className="w-full sm:w-auto px-5 py-3.5 sm:py-3 text-xs font-mono uppercase tracking-wider text-white bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 transition-colors flex items-center justify-center gap-2 whitespace-nowrap min-h-[44px]"
             >
               <ExternalLink className="w-4 h-4 text-[#c8a97e]" />
               <span>VIEW ON GOOGLE MAPS</span>

@@ -133,7 +133,7 @@ export const PropertyIntroSection: React.FC = () => {
             <div className="mt-8 flex items-center gap-4">
               <a 
                 href="#location"
-                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#c8a97e] hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 min-h-[44px] py-2 text-xs font-mono uppercase tracking-wider text-[#c8a97e] hover:text-white transition-colors"
               >
                 <span>VIEW INTERACTIVE MAP & DIRECTIONS</span>
                 <ArrowUpRight className="w-4 h-4" />

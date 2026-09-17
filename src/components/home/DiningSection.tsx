@@ -92,11 +92,11 @@ export const DiningSection: React.FC<DiningSectionProps> = ({ onOpenEnquiry }) =
               </div>
             )}
 
-            <div className="mt-8 flex items-center gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <button
                 type="button"
                 onClick={onOpenEnquiry}
-                className="px-6 py-3 rounded-lg text-xs font-mono uppercase tracking-wider bg-white/10 hover:bg-white/15 text-white border border-white/10 transition-colors"
+                className="w-full sm:w-auto min-h-[44px] px-6 py-3 rounded-lg text-xs font-mono uppercase tracking-wider bg-white/10 hover:bg-white/15 text-white border border-white/10 transition-colors flex items-center justify-center text-center"
               >
                 ENQUIRE ABOUT MEAL PLANS
               </button>

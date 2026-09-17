@@ -84,7 +84,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* Brand Name */}
         <h1 
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-[#f5f3ef] tracking-tight leading-[1.08] max-w-5xl transition-transform duration-500"
+          className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-[#f5f3ef] tracking-tight leading-[1.1] max-w-5xl transition-transform duration-500 break-words"
           style={{
             transform: `translate3d(${mousePos.x * 0.3}px, ${mousePos.y * 0.3}px, 0)`
           }}
@@ -94,7 +94,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* Primary Headline */}
         <p 
-          className="mt-4 sm:mt-6 text-xl sm:text-2xl md:text-3xl font-serif italic text-[#c8a97e] max-w-3xl transition-transform duration-500 font-normal"
+          className="mt-3 sm:mt-6 text-lg sm:text-2xl md:text-3xl font-serif italic text-[#c8a97e] max-w-3xl transition-transform duration-500 font-normal px-2"
           style={{
             transform: `translate3d(${mousePos.x * 0.2}px, ${mousePos.y * 0.2}px, 0)`
           }}
@@ -104,7 +104,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* Supporting Description (CMS controlled) */}
         <p 
-          className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg text-[#bbb8b0] max-w-2xl font-light leading-relaxed transition-transform duration-500"
+          className="mt-3 sm:mt-5 text-sm sm:text-base md:text-lg text-[#bbb8b0] max-w-2xl font-light leading-relaxed transition-transform duration-500 px-2"
           style={{
             transform: `translate3d(${mousePos.x * 0.1}px, ${mousePos.y * 0.1}px, 0)`
           }}
