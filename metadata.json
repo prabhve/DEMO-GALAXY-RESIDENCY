@@ -1,0 +1,6 @@
+{
+  "name": "Galaxy Residency",
+  "description": "Immersive 3D interactive residency and stay experience in Knowledge Park III, Greater Noida.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
